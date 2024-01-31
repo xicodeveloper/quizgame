@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../views/partials/head'); %>
+<body>
+    <%- include('../views/partials/header2'); %>
+    <%- include('../views/partials/part'); %>
+        <div class="row3">
+            <div class="col-sm-2">
+                <img class="imageB" src="image/History.png">
+                <div class="topBox"><p class="type">History</p></div>
+                <div class="pointBox">
+                    <div class="type2">
+                        <p>Corect Awsers:</p>
+                        <p><%=  Math.floor(user.total_score_History / 20)%></p>
+                        <p>Wrong Awsers:</p>
+                        <p><%= user.perguntas_vistas_History - Math.floor(user.total_score_History / 20)%></p>
+                        <p>Total Score:</p>
+                        <% if(user.total_score_History) {%>
+                        <p><%=(user.total_score_History/(user.perguntas_vistas_History * 20))*100%> %</p>
+                        <% }else{%>
+                            <p>Tem que jogar primeiro</p>
+                        <%}%>
+
+
+                        </div>
+                </div>
+               
+            
+            
+            </div>
+            
+            <div class="col-sm-2">
+                <img class="imageB" src="image/World.png">
+                <div class="topBox2"><p class="type">Geography</p></div>
+            <div class="pointBox">
+                <div class="type2">
+                    <p>Corect Awsers:</p>
+                    <p><%=  Math.floor(user.total_score_Geography / 20)%></p>
+                    <p>Wrong Awsers:</p>
+                    <p><%= user.perguntas_vistas_Geography - Math.floor(user.total_score_Geography / 20)%></p>
+                    <p>Total Score:</p>
+                    <% if(user.total_score_Geography ) {%>
+                    <p><%=(user.total_score_Geography/(user.perguntas_vistas_Geography * 20))*100%> %</p>
+                    <% }else{ %>
+                        <p>Tem que jogar primeiro</p>
+                        <% } %>
+                    </div>
+            </div>
+        </div>
+        
+            <div class="col-sm-2">
+                <img class="imageB" src="image/Art.png">
+                 <div class="topBox3"><p class="type">Art</p></div>
+            <div class="pointBox">
+                <div class="type2">
+                    <p>Corect Awsers:</p>
+                    <p><%=  Math.floor(user.total_score_Art / 20)%></p>
+                    <p>Wrong Awsers:</p>
+                    <p><%= user.perguntas_vistas_Art - Math.floor(user.total_score_Art / 20)%></p>
+                    <p>Total Score:</p>
+                    <% if(user.total_score_Art ){%>
+                    <p><%=(user.total_score_Art/(user.perguntas_vistas_Art * 20))*100%> %</p>
+                    <% }else{ %>
+                     <p>Tem que jogar primeiro</p>
+                     <% } %>
+                </div>
+            </div>
+        </div>
+        
+            <div class="col-sm-2">
+                <img class="imageB" src="image/Science.png">
+                <div class="topBox4"><p class="type">Science</p></div>
+            <div class="pointBox">
+                <div class="type2">
+                    <p>Corect Awsers:</p>
+                    <p><%=  Math.floor(user.total_score_Science / 20)%></p>
+                    <p>Wrong Awsers:</p>
+                    <p><%= user.perguntas_vistas_Science - Math.floor(user.total_score_Science / 20)%></p>
+                    <p>Total Score:</p>
+                    <% if(user.total_score_Science ){%>
+                    <p><%=(user.total_score_Science/(user.perguntas_vistas_Science * 20))*100%> %</p>
+                    <% }else{%>
+                        <p>Tem que jogar primeiro</p>
+                    <%}%>
+                    </div>
+            </div>
+        </div>
+        
+            <div class="col-sm-2">
+                <img class="imageB" src="image/Sport.png">
+                <div class="topBox5"><p class="type">Sport</p></div>
+            <div class="pointBox">
+                <div class="type2">
+                    <p>Corect Awsers:</p>
+                    <p><%=  Math.floor(user.total_score_Sports / 20)%></p>
+                    <p>Wrong Awsers:</p>
+                    <p><%= user.perguntas_vistas_Sports - Math.floor(user.total_score_Sports / 20)%></p>
+                    <p>Total Score:</p>
+                    <% if(user.total_score_Sports ){%>
+                    <p><%=(user.total_score_Sports/(user.perguntas_vistas_Sports * 20))*100%> %</p>
+                    <% }else{ %>
+                        <p>Tem que jogar primeiro</p>
+                    <% } %>
+
+                    </div>
+            </div>
+        </div>
+        
+            <div class="col-sm-2">
+                <img class="imageB" src="image/World.png">
+                <div class="topBox6"><p class="type">Mix</p></div>
+            
+            <div class="pointBox">
+                <div class="type2">
+                    <p>Corect Awsers:</p>
+                    <p><%=  Math.floor(user.total_score_Mix / 20)%></p>
+                    <p>Wrong Awsers:</p>
+                    <p><%= user.perguntas_vistas_Mix - Math.floor(user.total_score_Mix / 20)%></p>
+                    <p>Total Score:</p>
+                    <% if(user.total_score_Mix){ %>
+                    <p><%=(user.total_score_Mix/(user.perguntas_vistas_Mix * 20))*100%> %</p>
+                    <% }else{ %>
+                        <p>Tem que jogar primeiro</p>
+                    <%}%>
+            </div>
+        </div>
+        </div>
+</body>
+<%- include('../views/partials/footer'); %>
+</html>

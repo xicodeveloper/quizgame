@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../views/partials/head'); %>
+<body>
+    <%- include('../views/partials/header2'); %>
+    <%- include('../views/partials/part'); %>
+    <div class="addF">
+        <form method="post" action="/add/new"> 
+            <div class="camp">
+        <p><input type="text"  name="email" placeholder="Email"></p>
+        <div class="line"></div>
+        <br>
+        <p><input type="text"  name="username" placeholder="UserName"></p>
+        <div class="line"></div>
+        </div>
+        <button type="submit" >Add Friend</button>
+       
+
+    </form>
+</div>
+
+</body>
+<%- include('../views/partials/footer'); %>
+</html>

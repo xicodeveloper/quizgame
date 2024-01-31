@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../views/partials/head'); %>
+    <%- include('../views/partials/header2'); %>
+<body>
+    <%- include('../views/partials/part'); %>
+    <div class="box">
+        <div class="subBox2">
+            <img src="image/World.png" class="profileImage"/>
+            <p><%=username%></p>
+        </div>
+        <div class="messageBox3">
+            <div class="personMessage"> 
+                <img src="image/World.png" />
+                <p id="output33"></p>
+            </div>
+        </div>
+       
+        <div class="chat-input-box">
+            <form class="myForm"  action="">
+                <p>
+                  <textarea
+                    id="mensagens"
+                    name="mensagem"
+                    rows="4"
+                    cols="50"
+                    placeholder="Tua mensagem"
+                  ></textarea>
+                </p>
+                <input
+                    id="room33"
+                    name="room33"
+                    placeholder="Tua mensagem"
+                  />
+                <button id="submeter">Submeter comentário</button>
+              </form>
+              <br>
+          </div>
+        </div>
+
+    </div>
+    <div id="chat-container">
+      <div id="message-container">
+        <!-- Messages will be dynamically added here -->
+      </div>
+      <form id="message-form">
+        <input type="text" id="message-input" placeholder="Enter your message" />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+    
+</body>
+<%- include('../views/partials/footer'); %>
+ <!--Importamos o socket.io no lado do cliente-->
+ <script src="/socket.io/socket.io.js"></script>
+ <!--Importamos o socketMain. NOTA: temos que adicionar a propridade type="module" para importar ficheiros externos-->
+ <script  src="/js/socket/socketMain.js"> </script>
+</body>
+
+</html>

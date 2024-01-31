@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../views/partials/head'); %>
+
+<body>
+     
+    <%- include('../views/partials/header2'); %>
+    <%- include('../views/partials/part'); %>
+    <div class="box">
+        <div class="subBox"> <p>Profile</p> </div>
+        <div class="messageBox2">
+            <div class="letBox">
+            <img src="<%=user2.imagem%>" alt="/image/anonimo.png" class="imageInp3">
+            <% let b = "Alterar imagem de perfil" %>
+            <% let a = "Digite sua Bio" %>
+            <% if(user2.bio == null){ %>
+                <% a = "Digite sua Bio" %>
+            <% }else{a=user2.bio}  %>
+            <% if(user2.imagem == null){ %>
+                <% b = "Imagem não encontrada" %>
+            <% } %>
+            <form method="post" class="formP" action="/profile/<%=user2.id%>?_method=PATCH">
+                <p class="ImIn">Imagem</p>
+                <input type="text"  class="inp" name="imagem" class="upload" placeholder="<%=b%>">
+                <div class="line"></div>
+
+                <p class="Username">Username</p>
+                <input type="text" class="inp" name="username" placeholder="<%=user2.username%>" /><br>
+                <div class="line"></div>
+                <p class="Bioname">Bio</p>
+                <input type="text" class="inp" name="bio" placeholder="<%=a%>"/><br>
+                <div class="line"></div>
+                <input type="submit" value="save" class="save">
+              </form>
+              </div>
+            </div>
+                
+        </div>
+    </div>
+</body>
+<%- include('../views/partials/footer'); %>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../views/partials/head'); %>
+
+<body>
+    <%- include('../views/partials/header2'); %>
+    <%- include('../views/partials/part'); %>
+    <div class="box">
+        <div class="subBox"> <p><%=user2.username%></p> </div>
+        <div class="messageBox2">
+            <div class="letBox3">
+            <img src="<%=user2.imagem%>" />
+            <button>Message</button>
+            <br><br>
+            <br>
+            <p class="bioM">Bio: <%=user2.bio%></p>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include('../views/partials/footer'); %>
+</html>

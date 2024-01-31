@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../views/partials/head'); %>
+<body>
+    <%- include('../views/partials/header2'); %>
+    <%- include('../views/partials/part'); %>
+        <div class="join-container" style="position: relative; bottom: 6vh">
+            <header class="join-header">
+                <h1><i class="fas fa-smile"></i> Room Name</h1>
+            </header>
+            <main class="join-main">
+                    <div class="form-control" style="display: none">
+                        <input
+                            type="txt"
+                            name="username"
+                            id="username"
+                            placeholder="Enter username..."
+                            required
+                           value="<%= user.username %>"
+                        />
+                    </div>
+                    <div class="form-control">
+						<input name="room" id="room"/>
+					</div>
+                    <button
+                       
+                        type="submit"
+                        class="btn"
+                        style="
+                            background-color: salmon;
+                            padding: 2vh;
+                            width: 100%;
+                            border: none;
+                            color: white;
+                            margin-top: 2vh; /*3.2258064516129vh*/
+                            border-radius: 1.6vh;
+                            cursor: pointer;
+                        "
+                         onclick="joinChat()"
+                    >
+                        Join Chat
+                    </button>
+                
+            </main>
+        </div>
+        <script>
+            function joinChat() {
+                const username = document.getElementById('username').value;
+                const room = document.getElementById('room').value;
+                const cat = '<%= cat %>';
+                const url = `/chat?username=${username}&room=${room}&cat=${cat}`;
+                window.location.href = url;
+            }
+        </script>
+    </body>
+    <%- include('../views/partials/footer'); %>
+</html>

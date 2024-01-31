@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../views/partials/head'); %>
+    
+<body>
+    <div>
+        <img src="/image/Rectangle2.png"/>
+        <img class="icon-image1" src="/image/icon-brain.png"/>
+        <article>
+            <p class="first_text">Quizzeria is an exciting online quiz game designed to challenge your knowledge, test your memory, and improve your cognitive skills. The game consists of various categories such as history, science, geography, art and sport.
+            You can play against other players from around the world or compete with your friends and family.</p>
+        </article>
+    </div>
+        <div>
+            <h2>Create your account</h2>
+                <form method="POST" action="/sign">
+                    <div class="form-group1">
+                        <label for="NameInput">Name</label>
+                        <input required type="text" class="form-control" id="exampleName" name="username" placeholder="Enter your name">
+                        <small  class="form-text text-muted">Be creative!</small>
+                      </div>
+                    <div class="form-group2">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input required type="email" class="form-control" id="exampleInputEmail1" name="mail" aria-describedby="emailHelp" placeholder="Enter email" >
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group3">
+                      <label for="exampleInputPassword1" >Password</label>
+                      <input required type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password" >
+                      <small class="form-text text-muted">Choose a strong password.</small>
+                    </div>
+                    <div class="checkboxC">
+                        <input required type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="agree" class="name_fields" for="exampleCheck1">By signing agree with Terms & Policy</label>
+                      </div>
+                        <button type="submit" class="btnbtn-primary"><p class="lettersig">Sign Up</p></button>
+                  
+                  </form>
+                            
+                  <button onclick="window.location.href='/login'" type="submit" class="btnbtn-secundary"><p class="letterlog">Login</p></button>
+                 
+        </div>
+       
+</body>
+<footer>
+  <img src="/image/Quizzeria.png" class="logo">
+  </footer>
+  <script
+    src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"
+  ></script>
+</html>

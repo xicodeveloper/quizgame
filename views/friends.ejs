@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../views/partials/head'); %>
+  <body>
+    <%- include('../views/partials/header2'); %>
+    <%- include('../views/partials/part'); %>
+    <div class="box">
+      <div class="subBox">
+        <p>Friends</p>
+        <button onclick="window.location.href='/add/new'" class="add">Add</button>
+      </div>
+      <div class="messageBox">
+        <% amigo.forEach(friend => { %>
+          
+       
+        <% if(friend) { %>
+        <div class="amigo">
+          <div class="nomeAmigo">
+            <div class="friend">
+              <img src="<%=friend.imagem %>" alt="/image/anonimo.png" class="imageInp2">
+              <p class="pfriend"><%= friend.username %></p>
+              <button onclick="window.location.href='/insideProfile/<%=friend._id%>'">Profile</button>
+            </div>
+          </div>
+        </div>
+      
+        <% } %>
+        <% }) %>
+      </div>
+ 
+    </div>
+    <% include('../views/partials/footer'); %>
+  </body>
+</html>

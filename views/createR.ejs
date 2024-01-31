@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../views/partials/head'); %>
+
+<body>
+    <%- include('../views/partials/header2'); %>
+    <%- include('../views/partials/part'); %>
+<div class="tCreate">
+    <div class="t1">
+        <% amigo.forEach(friend => { %>
+            <img src="<%=friend.imagem%>" class="imageInp"/>
+        <div class="pt1" style="position: relative;
+        padding-left: 30px; ">
+        <p><%=friend.username%></p>
+        <input type="checkbox" class="checkbox" value="<%=friend._id%>"/>
+        </div>
+        <%})%>
+        
+    </div>
+    <button id="but"  class="but">Invite</button>
+    <div class="t2">
+        <div class="inner">
+            <img src="/image/Art.png"/>
+            <p>Francisco</p>
+            <p>joined room</p>
+            <p>+3 players</p>
+        </div>
+
+        <button onclick="window.location.href='/message'" id="but2" class="but2">Start</button>
+    </div>
+</div>
+<div id="error-message"></div>
+    <img scr="/image/arrow.png" />
+    <form class="s" >
+        <input id="roomm" name="room" type="text"/>
+         <input type="submit" />
+    </form>
+</body>
+
+
+ 
+<%- include('../views/partials/footer'); %>
+<script src="/socket.io/socket.io.js"></script>
+ <!--Importamos o socketMain. NOTA: temos que adicionar a propridade type="module" para importar ficheiros externos-->
+ <script type="module" src="/js/socket/socketMain2.js"> </script>
+
+</html>

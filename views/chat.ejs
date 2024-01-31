@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+            integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+            crossorigin="anonymous"
+        />
+        <%- include('../views/partials/head'); %>
+       
+
+    </head>
+    <body>
+        <div class="chat-container">
+            <header class="chat-header">
+                <h1>Quizzeria Room</h1>
+                <a id="leave-btn" style="background-color: #f7d488; color: white;" class="btn">Leave Room</a>
+            </header>
+            <main class="chat-main">
+                <div class="chat-sidebar">
+                    <h3 style="display: none;"><i class="fas fa-comments"></i> Room Name:</h3>
+                    <h2 id="room" style="display: none;"></h2>
+                    <h3><i class="fas fa-users"></i> Users</h3>
+                    <ul id="users"></ul>
+                </div>
+                <div class="chat-messages"></div>
+            </main>
+            <div class="chat-form-container">
+                <form id="chat-form">
+                    <input
+                        id="msg"
+                        type="text"
+                        placeholder="Enter Message"
+                        required
+                        autocomplete="off"
+                    />
+                    <button class="btn" style="background-color: #f7d488; color: white;">
+                        <i class="fas fa-paper-plane"></i> Send
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div id="question-text">
+            <h5><%=info.category%></h5>
+             <h6><%=info.question%></h6>
+             <% const randomNum = Math.floor(Math.random() * (4 - 1 + 1)) + 1 %>
+             <div class="insideperguntaSection">
+         
+         <%if(randomNum==1){%>
+                     <button class="circular" value="certo"><%=info.correct_answer%></button>
+                     <button class="circular"><%=info.incorrect_answers[0]%></button>
+                     <button class="circular"><%=info.incorrect_answers[1]%></button>
+                     <button class="circular"><%=info.incorrect_answers[2]%></button>
+                     <%}%>
+         <%if(randomNum==2){%>
+             <button class="circular"><%=info.incorrect_answers[0]%></button>
+             <button class="circular" value="certo"><%=info.correct_answer%></button>
+             <button class="circular"><%=info.incorrect_answers[1]%></button>
+             <button class="circular"><%=info.incorrect_answers[2]%></button>
+         <%}%>
+         <%if(randomNum==3){%>
+                 <button class="circular"><%=info.incorrect_answers[0]%></button>
+                 <button class="circular"><%=info.incorrect_answers[1]%></button>
+                 <button class="circular" value="certo"><%=info.correct_answer%></button>
+                 <button class="circular"><%=info.incorrect_answers[2]%></button>
+                 <%}%>
+                 <%if(randomNum==4){%>
+             <button class="circular"><%=info.incorrect_answers[0]%></button>
+             <button class="circular"><%=info.incorrect_answers[1]%></button>
+             <button class="circular"><%=info.incorrect_answers[2]%></button>
+             <button class="circular" value="certo"><%=info.correct_answer%></button>
+       <% } %>
+             </div>
+         </div>
+         <div class="topp">
+            <br><br>
+            <div id="timer"></div>
+            <br><br>
+             <p>Position of Players</p> 
+             <div id="player-list">
+             </div>
+         </div>
+        
+<!-- Script for timer -->
+<script>
+    const timer = document.getElementById('timer');
+    let timeLeft = 60; // set the timer length here in seconds
+    
+    const countdown = setInterval(() => {
+      if (timeLeft <= 0) {
+        clearInterval(countdown);
+        timer.innerHTML = 'Time\'s up!';
+        // emit event to server when timer is up
+        socket.emit('timerUp');
+        socket.disconnect();
+        window.location.href = '/end'; // redirect to the "/end" page
+      } else {
+        timer.innerHTML = `Time left: ${timeLeft}s`;
+      }
+      timeLeft--;
+    }, 1000);
+  </script>
+  
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
+            integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4="
+            crossorigin="anonymous"
+        ></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/js/socket/socketMain.js"></script>
+        <script src="/js/chat.js"></script>
+
+        <%- include('./partials/footer') %>
+    </body>
+</html>

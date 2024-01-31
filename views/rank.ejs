@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../views/partials/head'); %>
+
+<body>
+  <%- include('../views/partials/header2'); %>
+  <%- include('../views/partials/part'); %>
+  <table>
+    <tr>
+      <td></td>
+      <th>Total Score %</th>
+      <th>Art</th>
+      <th>Geography</th>
+      <th>History</th>
+      <th>Science</th>
+      <th>Sport</th>
+      <th>Mix</th>
+    </tr>
+   <% let  pontuacao =0; %>
+   <% let sortedUsers = user.sort((a, b) => {
+    const totalScoreA = (a.total_score_Art + a.total_score_Geography + a.total_score_History + a.total_score_Science + a.total_score_Sports + a.total_score_Mix);
+    const totalScoreB = (b.total_score_Art + b.total_score_Geography + b.total_score_History + b.total_score_Science + b.total_score_Sports + b.total_score_Mix);
+    
+    if (totalScoreA === totalScoreB) {
+      return 0; // If total scores are equal, maintain the original order
+    } else {
+      return totalScoreB - totalScoreA; // Sort in descending order of total scores
+    }
+}); %>
+    <% sortedUsers.forEach((user, index) => { %>
+    <tr>
+      <td><%= user.username %></td>
+      <% if (user.total_score_Art || user.total_score_Geography || user.total_score_History || user.total_score_Science || user.total_score_Sports ||  user.total_score_Mix) { %>
+      <td><%= ((user.total_score_Art + user.total_score_Geography + user.total_score_History + user.total_score_Science + user.total_score_Sports +  user.total_score_Mix) / ((user.perguntas_vistas_Art + user.perguntas_vistas_Mix+user.perguntas_vistas_Geography + user.perguntas_vistas_History + user.perguntas_vistas_Science + user.perguntas_vistas_Sports) * 20)) * 100 %></td>
+      <% } else { %>
+      <td>Tem que jogar primeiro</td>
+      <% } %>
+      <% if (user.total_score_Art) { %>
+      <td><%= ((user.total_score_Art ) / ((user.perguntas_vistas_Art) * 20)) * 100 %></td>
+      <% } else { %>
+      <td><%= pontuacao %></td>
+      <% } %>
+      <% if (user.total_score_Geography) { %>
+      <td><%= ((user.total_score_Geography) / ((user.perguntas_vistas_Geography) * 20)) * 100 %></td>
+      <% } else { %>
+      <td><%= pontuacao %></td>
+      <% } %>
+      <% if (user.total_score_History) { %>
+      <td><%= ((user.total_score_History) / ((user.perguntas_vistas_History) * 20)) * 100 %></td>
+      <% } else { %>
+      <td><%= pontuacao %></td>
+      <% } %>
+      <% if (user.total_score_Science) { %>
+      <td><%= ((user.total_score_Science) / ((user.perguntas_vistas_Science) * 20)) * 100 %></td>
+      <% } else { %>
+      <td><%= pontuacao %></td>
+      <% } %>
+      <% if (user.total_score_Sports) { %>
+      <td><%= ((user.total_score_Sports) / ((user.perguntas_vistas_Sports) * 20)) * 100 %></td>
+      <% }else {%>
+        <td><%= pontuacao %></td>
+      <% }%>
+      <% if (user.total_score_Mix) { %>
+        <td><%= ((user.total_score_Mix) / ((user.perguntas_vistas_Mix) * 20)) * 100 %></td>
+        <% }else {%>
+          <td><%= pontuacao %></td>
+        <% }%>
+      </tr>
+      <% }) %>
+  </table>
+  <%- include('../views/partials/footer'); %>
+</body>
+
+</html>

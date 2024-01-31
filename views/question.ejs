@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../views/partials/head') %>
+    <body>
+        <%- include('../views/partials/part') %>
+        <%- include('../views/partials/header2');%>
+        <div class="perguntaSection">
+           <h5><%=info.category%></h5>
+            <h6><%=info.question%></h6>
+            <% const randomNum = Math.floor(Math.random() * (4 - 1 + 1)) + 1 %>
+            <div class="insideperguntaSection">
+        
+        <%if(randomNum==1){%>
+                    <button class="circular" value="certo"><%=info.correct_answer%></button>
+                    <button class="circular"><%=info.incorrect_answers[0]%></button>
+                    <button class="circular"><%=info.incorrect_answers[1]%></button>
+                    <button class="circular"><%=info.incorrect_answers[2]%></button>
+                    <%}%>
+        <%if(randomNum==2){%>
+            <button class="circular"><%=info.incorrect_answers[0]%></button>
+            <button class="circular" value="certo"><%=info.correct_answer%></button>
+            <button class="circular"><%=info.incorrect_answers[1]%></button>
+            <button class="circular"><%=info.incorrect_answers[2]%></button>
+        <%}%>
+        <%if(randomNum==3){%>
+                <button class="circular"><%=info.incorrect_answers[0]%></button>
+                <button class="circular"><%=info.incorrect_answers[1]%></button>
+                <button class="circular" value="certo"><%=info.correct_answer%></button>
+                <button class="circular"><%=info.incorrect_answers[2]%></button>
+                <%}%>
+                <%if(randomNum==4){%>
+            <button class="circular"><%=info.incorrect_answers[0]%></button>
+            <button class="circular"><%=info.incorrect_answers[1]%></button>
+            <button class="circular"><%=info.incorrect_answers[2]%></button>
+            <button class="circular" value="certo"><%=info.correct_answer%></button>
+      <% } %>
+                 
+            </div>
+            <button id="block">Block answer</button>
+            <button id="sair">Surrender</button>
+
+        </div>
+
+        <div class="topp">
+            <p>Time:00:00 </p>
+            <p>Position:</p>
+            <p>Stars: </p>
+            <p>Position of Players</p>
+            <p>List of users:</p>
+            <ul id="selected-users-list"></ul>
+        </div>
+  
+
+</script>        
+    </body>
+    <script src="/js/chat.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+ <!--Importamos o socketMain. NOTA: temos que adicionar a propridade type="module" para importar ficheiros externos-->
+    
+      <!-- Add an empty unordered list to the HTML for the selectedUsers data to be rendered into -->
+      
+</html>

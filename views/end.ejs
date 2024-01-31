@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../views/partials/head'); %>
+
+<body>
+
+<div class="titleh">
+    <h7>Round completed!</h7>
+    <p>Great job! You have successfully got through the round.</p>
+</div>
+<div class="mySelf">
+<img src="<%=info.imagem%>"/>
+<p><%=info.username%></p>
+<p>You have <%=info.total_score_History+ info.total_score_Mix +info.total_score_Art + info.total_score_Science + info.total_score_Sports + info.total_score_Geography  %> points accumuleted!</p>
+</div>
+
+    <button class="b" onclick="window.location.href='/home'">Start New</button>
+</body>
+<%- include('../views/partials/footer'); %>
+
+</html>

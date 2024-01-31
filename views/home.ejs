@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../views/partials/head'); %>
+
+<body>
+    <header>
+      <nav class="navb">
+          <img src="image/Ellipse.png" class="eclipse"/>
+          <div class="row2">
+          
+              <div class="col-2"> <button button onclick="window.location.href='/profile/<%=info._id%>'" class="nav_elements" src="image/rect.image" alt="Button Image"><p class="type">Profile</p></button></div>
+              <div class="col-2"><button onclick="window.location.href='/friends'" class="nav_elements"alt="Button Image"> <img src="image/Friends.png"/><p class="type">Friends</p></button>
+              </div>
+              <div class="col-2"><button onclick="window.location.href='/anch'" class="nav_elements" alt="Button Image"><img src="image/Achievement.png"/><p class="type">Achievements</p></button></div>
+              <div class="col-2"><button onclick="window.location.href='/rank'" class="nav_elements"  alt="Button Image"><img src="image/Ranking.png"/><p class="type">Ranks</p></button></div>
+              <div class="col-2"><button onclick="window.location.href='/logout'" class="nav_elements" alt="Button Image"><p class="type">LogOut</p></button></div> 
+          </div>
+      </nav>
+  </header>
+  
+  
+    <section class="backg">
+    <img src="image/sec.png" class="tit"/>
+    <h class="tit2">Be welcome to Quizzeria <%=info.username %></h>
+
+    <div class="container">       
+        <div class="row">
+          <div class="col-md-4 p-3">
+            <img src="image/History.png"  class="history"/> 
+            <button   name="history" value="History" class="cat" >History</button>
+          </div>
+          <div class="col-md-4 p-3">
+            <img src="image/World.png"  class="history"/> 
+            <button  name="geo" value="Geography" class="cat"> Geography</button>
+          </div>
+          <div class="col-md-4 p-3">
+            <img src="image/Art.png" class="history"/> 
+            <button  name="art" value="Art" class="cat"> Art</button>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-md-4 p-3">
+            <img src="image/Science.png" class="history"/> 
+            <button value="Science" name="Science" class="cat" >
+            Science</button></div>
+          <div class="col-md-4 p-3">
+            <img src="image/Sport.png" class="history" /> 
+            <button  name="sport" class="cat" value="Sports"> Sport</button></div>
+          <div class="col-md-4 p-3"> 
+            <img src="image/Speak.png" class="history" value="mix"/>
+            <button name="mix" class="cat" value="Mix"> Mix</button></div>
+        </div>
+      </div>
+      <img src="image/how_to_play.png" class="how_to_play"/>
+      <img src="image/Quizzeria.png" class="logo">
+      </section>
+
+</body>
+<%- include('../views/partials/footer'); %>
+<script src="/js/home.js"></script>
+</html>
